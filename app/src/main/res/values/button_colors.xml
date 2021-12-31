@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="button_sea_blue_default">#0099d2</color>
+    <color name="button_sea_blue_disabled">#880099d2</color>
+    <color name="button_ripple">#55000000</color>
+    <color name="button_white_default">#ffffff</color>
+    <color name="button_white_disabled">#88ffffff</color>
+
+
+</resources>
