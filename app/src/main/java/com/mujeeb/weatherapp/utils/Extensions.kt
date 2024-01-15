@@ -2,6 +2,7 @@ package com.mujeeb.weatherapp.utils
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.mujeeb.weatherapp.R
 import com.mujeeb.weatherapp.data.enums.Direction
 import com.mujeeb.weatherapp.data.enums.ErrorModel
 import com.mujeeb.weatherapp.data.enums.ErrorType
@@ -39,5 +40,15 @@ fun Double.toEstimatedDirection(): Direction {
         in 134..224 -> Direction.South
         in 225..314 -> Direction.West
         else -> Direction.North
+    }
+}
+
+
+fun Direction.toDirectionImageResource(): Int {
+    return when(this) {
+        Direction.North -> R.drawable.icons8_north_direction_48
+        Direction.East -> R.drawable.icons8_east_direction_48
+        Direction.South -> R.drawable.icons8_south_direction_48
+        else -> R.drawable.icons8_west_direction_48
     }
 }

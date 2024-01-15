@@ -112,8 +112,8 @@ class ForecastViewStateMapperImpl @Inject constructor() : ForecastViewStateMappe
         )
     }
 
-    override fun mapDomainForecastToViewState(forcast: Forecast): ForecastViewState {
-        return with(forcast) {
+    override fun mapDomainForecastToViewState(forecast: Forecast): ForecastViewState {
+        return with(forecast) {
             ForecastViewState(
                 list = list?.map {
                     mapDomainForecastResultToViewState(it)

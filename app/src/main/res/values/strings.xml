@@ -2,23 +2,5 @@
     <string name="app_name">WeatherApp</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="callback">must implement OnClickCallback</string>
-    <string name="search_hint">Search city</string>
-    <string name="is_clicked">is clicked</string>
-    <string name="city_detail">city detail</string>
-    <string name="current_temperature">Temp:</string>
-    <string name="wind_speed">Wind speed:</string>
-    <string name="search">Search</string>
-    <string name="wind_direction">Wind direction</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="something_went_error">Sorry something went wrong</string>
-    <string name="ok">OK</string>
-    <string name="no_network_title">You don\'t have network connection</string>
-    <string name="no_network_subtitle">You need to connect to internet</string>
-    <string name="dismiss_dialog_button_text">Close</string>
-    <string name="CityListFragment">CityListFragment</string>
-    <string name="CityDetailFragment">CityDetailFragment</string>
-    <string name="no_network">No network</string>
 
 </resources>

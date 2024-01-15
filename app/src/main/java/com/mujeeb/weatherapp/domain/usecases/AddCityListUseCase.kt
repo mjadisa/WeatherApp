@@ -1,6 +1,5 @@
 package com.mujeeb.weatherapp.domain.usecases
 
-import com.mujeeb.weatherapp.data.repository.CityListRepositoryImpl
 import com.mujeeb.weatherapp.domain.model.CityListResponse
 import com.mujeeb.weatherapp.domain.repository.CityListRepository
 import javax.inject.Inject

@@ -3,18 +3,16 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'kotlin-android-extensions'
-    id 'androidx.navigation.safeargs.kotlin'
 
 }
 
 android {
-    compileSdk 31
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.mujeeb.weatherapp"
         minSdk 26
-        targetSdk 31
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -37,53 +35,34 @@ android {
             buildConfigField("String", "CITY_LIST_ENDPOINT", CityListEndPoint)
         }
     }
-
     dataBinding {
         enabled = true
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    androidExtensions {
-        experimental = true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.6'
+    }
+    namespace 'com.mujeeb.weatherapp'
 }
 
 dependencies {
 
     //Default
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    implementation 'com.jakewharton.timber:timber:5.0.1'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.1'
-    testImplementation 'junit:junit:'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
 
     //Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-
-    // Support Libraries
-    implementation "com.android.support:recyclerview-v7:$support_library_version"
-    implementation "com.android.support:cardview-v7:$support_library_version"
-
-    // LiveData & ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-    implementation "androidx.activity:activity-ktx:$activity_version"
-    implementation "androidx.fragment:fragment-ktx:$fragment_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
-
-    //Picasso
-    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
-    implementation "com.squareup.picasso:picasso:$picasso_version"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -103,25 +82,48 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
-    //Navigation components
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
-
     // For local unit tests
-    implementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation 'junit:junit:'
+    implementation "androidx.arch.core:core-testing:2.2.0"
     testImplementation 'com.google.dagger:hilt-android-testing:2.44.1'
     kaptTest 'com.google.dagger:hilt-compiler:2.44.1'
-    implementation("androidx.fragment:fragment-ktx:1.5.5")
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'io.mockk:mockk:1.13.3'
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
 
+    //Compose
+    def composeBom = platform('androidx.compose:compose-bom:2023.06.00')
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+    implementation "androidx.compose.runtime:runtime"
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.foundation:foundation"
+    implementation "androidx.compose.material:material-icons-extended"
+    implementation "androidx.activity:activity-compose:1.8.2"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+    implementation 'androidx.navigation:navigation-compose:2.7.6'
+    implementation 'androidx.compose.material3:material3:1.1.2'
+
+    // Compose testing dependencies
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
 
 
+    //compose navigation testing
+    androidTestImplementation "androidx.navigation:navigation-testing:2.7.6"
 
+    //compose viewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0"
 
+    //compose hilt
+    implementation "androidx.hilt:hilt-navigation-compose:1.1.0"
 
+    //compose livedata
+    implementation "androidx.compose.runtime:runtime-livedata:1.5.4"
+
+    //compose lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.7.0"
 
 
 }
